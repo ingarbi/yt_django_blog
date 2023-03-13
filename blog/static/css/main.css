@@ -5,6 +5,10 @@
   font-family: "Archivo", sans-serif;
 }
 
-.main {
+html, body {
   font-family: "Merriweather", serif;
+}
+
+.fw-500 {
+  font-weight: 500;
 }
