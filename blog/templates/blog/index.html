@@ -13,7 +13,9 @@
       {% include "blog/components/post-list-elements.html" %}
 
     </div>
-    <div class="d-none d-lg-block col-4"></div>
+    <div class="d-none d-lg-block col-4">
+      {% sidebar_tag_cloud %}
+    </div>
   </div>
 
 {% endblock content %}

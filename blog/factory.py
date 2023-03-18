@@ -23,3 +23,14 @@ class PostFactory(factory.django.DjangoModelFactory):
         return x
 
     status = "published"
+
+    @factory.post_generation
+    def tags(self, create, extracted, **kwargs):
+        if not create:
+            # Simple build, do nothing.
+            return
+
+        if extracted:
+            self.tags.add(extracted)
+        else:
+            self.tags.add("all", "pythob", "django", "drf", "js", "htmx", "bootstrap")
