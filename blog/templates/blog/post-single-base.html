@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+
+{% block content %}   
+
+<div class="container" style="max-width: 1500px!important;">
+    <div class="row">
+        <div>{% block mid %}{% endblock mid %}</div>
+        <div>{% block right %}{% endblock right %}</div>
+    </div>
+</div>
+
+{% endblock content %}
