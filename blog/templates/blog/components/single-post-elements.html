@@ -2,20 +2,46 @@
 
 {% block mid %}
 
-<div>
-    {{post.author}}
+<div style="max-width: 1000px;">
+    <div class="text-muted">
+        {{post.author}}
+    </div>
+    <div class="text-muted">
+        {{post.updated_at|date:"M d"}}
+    </div>
+    <h1 class="fw-bold pb-2">
+        {{post.title}}
+    </h1>
+    <h3 class="text-muted fs-4 pb-3">
+        {{post.subtitle}}
+    </h3>
+    <h6 class="fs-16">
+        {{post.content}}
+    </h6>
 </div>
-<div>
-    {{post.updated_at|date:"M d"}}
-</div>
-<h1>
-    {{post.title}}
-</h1>
-<h3>
-    {{post.subtitle}}
-</h3>
-<h6>
-    {{post.content}}
-</h6>
-
 {% endblock mid %}
+
+{% block right %}
+{% sidebar_tag_cloud %}
+
+<div class="col-12">
+    <div class="pb-3">More from</div>
+        {% for post in related %}
+          <a href="{{post.get_absolute_url}}" class="text-decoration-none">
+            <div class="card mb-3 border-0 ps-1">
+                <div class="row">
+                    <div class="col-9 pe-2">
+                        <span class=" text-dark small">{{post.author}}</span>
+                        <h1 class="mb-1 fs-6 p-0 text-dark fw-bold">{{post.title|truncatechars:70}}</h1>
+                    </div>
+                    <div class="col-3 pt-3">
+                        <img src="https://picsum.photos/205/115"  class="img-fluid float-end">
+                    </div>
+                </div>
+            </div>
+          </a>
+        {% endfor %}
+</div>
+
+
+{% endblock right %}
