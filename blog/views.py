@@ -22,3 +22,12 @@ def post_single(request, post):
         "blog/components/single-post-elements.html",
         {"post": post, "related": related},
     )
+
+
+class TagListView(HomeView):
+
+    def get_template_names(self):
+        return "blog/tags.html"
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug=self.kwargs["tag"])

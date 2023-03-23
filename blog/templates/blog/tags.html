@@ -1,0 +1,14 @@
+{% extends "blog/post-single-base.html" %}
+
+{% block mid %}
+    
+    {% for post in  posts %}
+    {{post.title}}
+    {% endfor %}
+
+{% endblock mid %}
+
+{% block right %}
+{% sidebar_tag_cloud %}
+
+{% endblock right %}
