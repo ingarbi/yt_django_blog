@@ -1,14 +1,12 @@
 {% extends "blog/post-single-base.html" %}
 
 {% block mid %}
-    
-    {% for post in  posts %}
-    {{post.title}}
-    {% endfor %}
+    <h1 class="fs-1 fw-bold pb-5">{{tag|title}}</h1>
+{% include "blog/components/tags-list-elements.html" %}
 
 {% endblock mid %}
 
 {% block right %}
 {% sidebar_tag_cloud %}
-
+{% include "blog/footer.html" %}
 {% endblock right %}
