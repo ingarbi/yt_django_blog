@@ -1,0 +1,13 @@
+{% extends "blog/post-single-base.html" %}
+
+{% block mid %}
+   
+{% if posts %}
+  <span class="text-muted">Results for: </span>{{ request.GET.q}}
+  {% else %}
+  <span class="text-muted">Nothing for: </span>{{ request.GET.q}}
+{% endif %}
+{% include "blog/components/search-list-elements.html" %}
+
+{% endblock mid %}
+
